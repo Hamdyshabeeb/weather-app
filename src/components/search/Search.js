@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './style.css';
 
 export default function Search({ handelSearch }) {
 	const [search, setSearch] = useState('');
@@ -12,10 +13,12 @@ export default function Search({ handelSearch }) {
 			/>
 
 			<button
-				onClick={() => handelSearch(search)}
+				onClick={() => {
+					handelSearch(search);
+					setSearch('');
+				}}
 				disabled={!(search && search.length > 2)}
 			>
-				{' '}
 				Search
 			</button>
 		</div>
